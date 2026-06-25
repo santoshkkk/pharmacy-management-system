@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pharmacy Management System</title>
+</head>
+<body>
+    <h1>Welcome to Pharmacy Management System</h1>
+
+    <button onclick="getData()">Get Server Time</button>
+
+    <p id="result"></p>
+
+    <script>
+        async function getData() {
+            const response = await fetch('http://localhost:7000/data');
+            const data = await response.json();
+
+            document.getElementById("result").innerHTML =
+                "Database Time: " + data[0].time;
+        }
+    </script>
+</body>
+</html>
